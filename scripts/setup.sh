@@ -2,7 +2,7 @@
 
 ## enable or disable installed components
 
-install_cuda=false
+install_cuda=true
 vcpkg_folder="."
 temp_folder="./temp"
 
@@ -11,7 +11,7 @@ temp_folder="./temp"
 mkdir $temp_folder
 cd $temp_folder
 
-sudo apt-get install cmake git ninja-build build-essentials g++
+sudo apt-get install cmake git ninja-build build-essential g++
 
 if [ "$install_cuda" = true ] ; then
   if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -33,10 +33,10 @@ if [ "$install_cuda" = true ] ; then
     export CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.0
     export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64:/usr/local/cuda-10.0/lib64/stubs:${LD_LIBRARY_PATH}"
 
-    features = "full"
+    $features = "full"
   fi
 else
-  features = "opencv-base,weights,weights-train"
+  $features = "opencv-base,weights,weights-train"
 fi
 
 rm -rf $temp_folder
