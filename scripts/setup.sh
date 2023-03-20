@@ -45,4 +45,4 @@ cd $vcpkg_folder
 git clone https://github.com/Microsoft/vcpkg
 cd vcpkg
 ./bootstrap-vcpkg.sh
-./vcpkg install darknet[${features}]
+./vcpkg install darknet $features
